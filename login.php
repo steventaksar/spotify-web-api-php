@@ -1,9 +1,6 @@
 <?php
 
-require 'vendor/autoload.php';
-
 session_start();
-
 
 $session = new SpotifyWebAPI\Session(
     $_ENV['CLIENT_ID'],
@@ -16,7 +13,7 @@ if (isset($_GET['code'])) {
 
     $_SESSION['refresh'] = $session->getRefreshToken();
     $_SESSION['access'] = $session->getAccessToken();
-
+    
     header('Location: index.php');
 } else {
     $options = [
