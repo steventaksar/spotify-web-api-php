@@ -85,8 +85,8 @@
                 <ul class="navbar-nav me-auto mb-2 mb-md-0 text-center text-white">
                     Playlist
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Titel, Artist" aria-label="Search">
+                <form class="d-flex" role="search" method="get" action="search.php">
+                    <input class="form-control me-2" type="search" name="keyword" placeholder="Titel, Artist" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Songsuche</button>
                 </form>
             </div>

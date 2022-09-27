@@ -1,5 +1,5 @@
 <?php
-$key = $_GET['key'];
+$key = $_GET['keyword'];
 
 $session = new SpotifyWebAPI\Session(
     'c4ba264bb5164e8f86e5d222f4a6f504',
