@@ -77,7 +77,7 @@
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="https://getbootstrap.com/docs/5.2/examples/sticky-footer-navbar/#">Silvester in Tegel - 2022</a>
+            <a class="navbar-brand" href="https://spotify.silvesterintegel.de">Silvester in Tegel - 2022</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -85,7 +85,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-md-0 text-center text-white">
                     Playlist
                 </ul>
-                <form class="d-flex" role="search" method="get" action="search.php">
+                <form class="d-flex" role="search" method="post"">
                     <input class="form-control me-2" type="search" name="keyword" placeholder="Titel, Artist" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Songsuche</button>
                 </form>
@@ -102,7 +102,6 @@
         ini_set('display_errors', 1);
         ini_set('display_startup_errors', 1);
         error_reporting(E_ALL);
-        require 'vendor/autoload.php';
 
         $session = new SpotifyWebAPI\Session(
             'c4ba264bb5164e8f86e5d222f4a6f504',
@@ -117,6 +116,7 @@
             $api->setAccessToken($session->getAccessToken());
 
             print_r($api->me());
+
         } else {
             $options = [
                 'scope' => [
@@ -127,6 +127,8 @@
             header('Location: ' . $session->getAuthorizeUrl($options));
             die();
         }
+
+
         ?>
     </div>
 </main>
